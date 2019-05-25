@@ -38,8 +38,6 @@ class Input(ctypes.Structure):
 
 
 def pressKey(key):
-	#CONSIDER SHIFT 
-	#CONSIDER NUMLOCK AND SHIT
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
     ii_.ki = KeyBdInput( 0, key_dict[key], 0x0008, 0, ctypes.pointer(extra) )
