@@ -1,11 +1,9 @@
 import ctypes
 import time
-from hid_keys import A
+from key_dict import key_dict
+
 
 SendInput = ctypes.windll.user32.SendInput
-
-#w =0x11 
-
 
 # C struct redefinitions 
 PUL = ctypes.POINTER(ctypes.c_ulong)
@@ -38,26 +36,20 @@ class Input(ctypes.Structure):
     _fields_ = [("type", ctypes.c_ulong),
                 ("ii", Input_I)]
 
-# Actuals Functions
 
-def pressKey(hexKeyCode):
+def pressKey(key):
+	#CONSIDER SHIFT 
+	#CONSIDER NUMLOCK AND SHIT
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
-    ii_.ki = KeyBdInput( 0, hexKeyCode, 0x0008, 0, ctypes.pointer(extra) )
+    ii_.ki = KeyBdInput( 0, key_dict[key], 0x0008, 0, ctypes.pointer(extra) )
     x = Input( ctypes.c_ulong(1), ii_ )
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
-def releaseKey(hexKeyCode):
+def releaseKey(key):
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
-    ii_.ki = KeyBdInput( 0, hexKeyCode, 0x0008 | 0x0002, 0, 
-ctypes.pointer(extra) )
+    ii_.ki = KeyBdInput( 0, key_dict[key], 0x0008 | 0x0002, 0, ctypes.pointer(extra) )
     x = Input( ctypes.c_ulong(1), ii_ )
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
-#key_input=input('Enter the key:')
-time.sleep(5)
-pressKey(0x2A)
-pressKey(0x1E)
-releaseKey(0x1E)
-releaseKey(0x2A)
