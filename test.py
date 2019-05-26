@@ -1,5 +1,8 @@
-from pyWinKey import pressKey, releaseKey
+from pyWinKey import press, sendSequence, pressKey, releaseKey
 import time 
 
-time.sleep(5)
-pressKey('!')
+#time.sleep(3)
+press('"')
+
+
+

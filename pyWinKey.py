@@ -37,17 +37,74 @@ class Input(ctypes.Structure):
                 ("ii", Input_I)]
 
 
-def pressKey(key):
+def pressKey(key=None):
+
+    assert key is not None, "No keys are given (key=None). Please check your code"
+    assert key in key_dict, "The key you're trying to press does not exists! Please check for any spelling errors."
+
+    #import pdb; pdb.set_trace()
+
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
-    ii_.ki = KeyBdInput( 0, key_dict[key], 0x0008, 0, ctypes.pointer(extra) )
+
+    if key in ['INS', 'HOME', 'PGUP', 'PGDN', 'END', 'DEL', 'UP', 'DOWN', 'LEFT', 'RIGHT']:
+        ii_.ki = KeyBdInput( 0, key_dict[key], 0x0008 | 0x0001, 0, ctypes.pointer(extra) )
+    else: ii_.ki = KeyBdInput( 0, key_dict[key], 0x0008, 0, ctypes.pointer(extra) )
+
     x = Input( ctypes.c_ulong(1), ii_ )
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
-def releaseKey(key):
+def releaseKey(key=None):
+
+    assert key is not None, "No keys are given (key=None). Please check your code"
+    assert key in key_dict, "The key({}) you're trying to release does not exists! Please check for any spelling errors.".format(key)
+
     extra = ctypes.c_ulong(0)
     ii_ = Input_I()
-    ii_.ki = KeyBdInput( 0, key_dict[key], 0x0008 | 0x0002, 0, ctypes.pointer(extra) )
+
+    if key in ['INS', 'HOME', 'PGUP', 'PGDN', 'END', 'DEL', 'UP', 'DOWN', 'LEFT', 'RIGHT']:
+        ii_.ki = KeyBdInput( 0, key_dict[key], 0x0008 | 0x0002 | 0x0001, 0, ctypes.pointer(extra) )
+    else: ii_.ki = KeyBdInput( 0, key_dict[key], 0x0008 | 0x0002, 0, ctypes.pointer(extra) )
+
     x = Input( ctypes.c_ulong(1), ii_ )
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
+
+def press(key, sec=0):
+
+    if key.isalpha() and key.islower():
+        key = key.upper()
+
+    shift_flag = None
+
+    if key in '!@#$%^&*()_+}{~|:"<>?':
+        pressKey('LSHIFT')
+        shift_flag = True
+
+    pressKey(key)
+    time.sleep(sec)
+    releaseKey(key)
+
+    if shift_flag:
+        releaseKey('LSHIFT')
+
+def sendSequence(seq=None):
+
+    if isinstance(seq, str):
+         for c in seq:
+            press(c)
+
+    if isinstance(seq, list):
+        for key in seq:
+            press(key)
+
+    if isinstance(seq, dict):
+        for key, sec in seq.items():
+            press(key, sec)
+
+
+
+
+
+
+
 
