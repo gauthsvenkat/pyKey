@@ -4,7 +4,7 @@ A python wrapper for SendInput function to synthesize keystrokes. (Please visit:
 This library specifically uses the keyboard scan codes to simulate keystrokes (as opposed to other python keyboard simulator libraries, which use virtual keyboard codes). The advantage is that this package will work with sending keystrokes to video games (which won't normally work with virtual keyboard codes).
 
 ## Requirements
-
+This package was created and tested on python 3.6 on windows 10. Should work for similar configurations. 
 
 ## Installation
 
@@ -15,6 +15,10 @@ pip install pyWinKey
 ```
 
 ## Usage
+
+```
+from pyWinKey import pressKey, releaseKey, press, sendSequence, showKeys
+```
 
 There are two important functions you need to know about; pressKey() and releaseKey().
 
