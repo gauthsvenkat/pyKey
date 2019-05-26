@@ -1,6 +1,6 @@
 import ctypes
 import time
-from key_dict import key_dict
+from pyWinKey.key_dict import key_dict
 
 
 SendInput = ctypes.windll.user32.SendInput
@@ -37,7 +37,7 @@ class Input(ctypes.Structure):
                 ("ii", Input_I)]
 
 
-#Presses a key and holds it until explicitely called the releaseKey function.
+#Presses a key and holds it until explicitly called the releaseKey function.
 def pressKey(key=None):
 
     assert key is not None, "No keys are given (key=None). Please check your code"
@@ -56,7 +56,7 @@ def pressKey(key=None):
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
 
 #Releases a key that was pressed by pressKey function. Doesn't really matter if you're just simulating typing
-#text. But it's generally smart to explicitely call releaseKey, particularly if you're trying to simulate
+#text. But it's generally smart to explicitly call releaseKey, particularly if you're trying to simulate
 #pressing keys like shift, ctrl, etc.
 def releaseKey(key=None):
 
@@ -75,7 +75,7 @@ def releaseKey(key=None):
 
 #Presses a key and releases it. If sec argument is given, this function will press and hold a key for that many
 #seconds.
-def press(key, sec=0):
+def press(key=None, sec=0):
 
     assert key is not None, "No keys are given (key=None). Please check your code"
     assert sec >= 0, "Seconds cannot be negative"
