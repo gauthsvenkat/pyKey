@@ -18,7 +18,7 @@ pip install pyWinKey
 
 There are two important functions you need to know about; pressKey() and releaseKey().
 
-pressKey() will press a key and holds it until explicitly called the releaseKey function
+pressKey() will press a key and holds it until explicitly called the releaseKey function.
 releaseKey() will release a key that was pressed by pressKey function.
 
 Note:- It doesn't really matter calling releaseKey if you're just simulating typing text. But it's good practice to explicitly call releaseKey, particularly if you're trying to simulate pressing keys like shift, ctrl, etc, or in games.
