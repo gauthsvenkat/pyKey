@@ -40,7 +40,7 @@ class Input(ctypes.Structure):
 def pressKey(key=None):
 
     assert key is not None, "No keys are given (key=None). Please check your code"
-    assert key in key_dict, "The key you're trying to press does not exists! Please check for any spelling errors."
+    assert key in key_dict, "The key({}) you're trying to press does not exists! Please check for any spelling errors.".format(key)
 
     #import pdb; pdb.set_trace()
 
