@@ -101,6 +101,11 @@ def sendSequence(seq=None):
         for key, sec in seq.items():
             press(key, sec)
 
+def showKeys():
+    print("These are the available keys and their corresponding hexcode\n\n")
+    print('{:20}'.format('Key'), "HEXCODE")
+    for key, hexcode in key_dict.items():
+        print('{:20}'.format(key), hex(hexcode))
 
 
 
