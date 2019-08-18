@@ -1,6 +1,6 @@
 import ctypes
 import time
-from pyWinKey.key_dict import win_dict as key_dict
+from pyKey.key_dict import win_keys as key_dict
 
 SendInput = ctypes.windll.user32.SendInput
 

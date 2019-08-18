@@ -1,6 +1,6 @@
 import subprocess
 import time
-from pyWinKey.key_dict import linux_dict as key_dict
+from pyKey.key_dict import linux_keys as key_dict
 
 #Presses a key and holds it until explicitly called the releaseKey function.
 def pressKey(key=None):

@@ -1,4 +1,4 @@
-win_dict = {
+win_keys= {
 'ESC' : 0x01,
 '!' : 0x02,
 '1' : 0x02,
@@ -144,7 +144,7 @@ win_dict = {
 'm' : 0x32,
 }
 
-linux_dict = {
+linux_keys = {
 'ESC' : 'Escape',
 '!' : 'Shift+1',
 '1' : '1',

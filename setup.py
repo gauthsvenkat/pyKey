@@ -1,12 +1,12 @@
 from distutils.core import setup
 setup(
-  name = 'pyWinKey',         
-  packages = ['pyWinKey'],  
-  version = '0.1',      
+  name = 'pyKey',         
+  packages = ['pyKey'],  
+  version = '0.2',      
   license='MIT',        
-  description = 'A python wrapper for the windows SendInput function to synthesize keystrokes',
+  description = 'A python wrapper for SendInput (on windows) and xdotools (on linux) to synthesize keystrokes',
   author = 'Gautham',
-  author_email = 'gauthsvenkat@gmail.com',
+  author_email = 'andohuman@gmail.com',
   url = 'https://github.com/andohuman',
   download_url = 'https://github.com/andohuman/pyWinKey/archive/v_01.tar.gz',
   keywords = ['keyboard', 'simulate', 'keypress', 'scancodes'],
