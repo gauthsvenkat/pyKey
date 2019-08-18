@@ -80,9 +80,9 @@ def press(key=None, sec=0):
         pressKey('LSHIFT')
         shift_flag = True
 
-    pressKey(key_dict[key])
+    pressKey(key)
     time.sleep(sec) #if sec is not 0, hold key for sec seconds
-    releaseKey(key_dict[key])
+    releaseKey(key)
 
     if shift_flag: #release shift if shift is toggled
         releaseKey('LSHIFT')
