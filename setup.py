@@ -8,7 +8,7 @@ setup(
   author = 'Gautham',
   author_email = 'andohuman@gmail.com',
   url = 'https://github.com/andohuman',
-  download_url = 'https://github.com/andohuman/pyWinKey/archive/v_01.tar.gz',
+  download_url = 'https://github.com/andohuman/pyKey/archive/v0.2.tar.gz',
   keywords = ['keyboard', 'simulate', 'keypress', 'scancodes'],
   install_requires=[],
   classifiers=[
