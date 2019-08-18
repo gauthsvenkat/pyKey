@@ -13,7 +13,7 @@ Note:- While this package works on both linux and windows, there are some differ
 ### On Windows
 
 ```
-pip install pyKey
+pip3 install pyKey
 ```
 ### On linux based OSes
 
@@ -32,7 +32,10 @@ On Arch
 ```
 sudo pacman -S xdotool
 ```
-
+Once you have xdotool installed you can run 
+```
+pip3 install pyKey
+```
 ## Usage
 
 ```
