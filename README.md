@@ -1,4 +1,7 @@
 # pyKey
+
+![](pykey_demo.gif)
+
 A python wrapper for SendInput function (on windows) and xdotool (on linux) to synthesize keystrokes. (Please visit:- https://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-sendinput)
 
 This library makes use of SendInput function (on windows) and xdotool (on linux) to simulate keystrokes (as opposed to other python keyboard simulator libraries, which use virtual keyboard codes). The advantage is that this package will work with sending keystrokes to video games (which won't normally work with virtual keyboard codes).
